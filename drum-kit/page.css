@@ -1,0 +1,26 @@
+.playing{
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 1rem #ffc600;
+}
+
+
+.drum-pad{
+    border: .4rem solid black;
+    border-radius: .5rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    padding: 1rem .5rem;
+    transition: all .07s ease;
+    width: 100px;
+    text-align: center;
+    color: black;
+    background: white;
+}
+
+body {
+    background-image: url('background.jpg');
+    background-size: cover; /* This will ensure the image covers the entire background */
+    background-position: center; /* This will center the image */
+    background-repeat: no-repeat; /* This will prevent the image from repeating */
+}

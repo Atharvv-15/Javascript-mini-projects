@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="text-4xl font-bold text-center">Drum Kit</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="page.css">
+</head>
+<body>
+    <h1 class="text-4xl font-bold text-center text-black pt-10">Drum Kit</h1>
+
+    <div class="flex flex-row justify-center gap-4 items-center justify-center h-screen w-screen">
+        <div class="flex flex-row gap-4 mt-10 items-center justify-center text-center text-4xl">
+            <div data-key="65" class="drum-pad" id="A">A</div>
+            <div data-key="83" class="drum-pad" id="S">S</div>
+            <div data-key="68" class="drum-pad" id="D">D</div>
+            <div data-key="70" class="drum-pad" id="F">F</div>
+            <div data-key="71" class="drum-pad" id="G">G</div>
+            <div data-key="72" class="drum-pad" id="H">H</div>
+            <div data-key="74" class="drum-pad" id="J">J</div>
+            <div data-key="75" class="drum-pad" id="K">K</div>
+            <div data-key="76" class="drum-pad" id="L">L</div>
+        </div>
+    </div>
+
+    <audio data-key="65" src="sounds/boom.wav" class="clip"></audio>
+    <audio data-key="83" src="sounds/hihat.wav"></audio>
+    <audio data-key="68" src="sounds/kick.wav"></audio>
+    <audio data-key="70" src="sounds/openhat.wav"></audio>
+    <audio data-key="71" src="sounds/boom.wav"></audio>
+    <audio data-key="72" src="sounds/ride.wav"></audio>
+    <audio data-key="74" src="sounds/snare.wav"></audio>
+    <audio data-key="75" src="sounds/tom.wav"></audio>
+    <audio data-key="76" src="sounds/tink.wav"></audio>
+
+    <script>
+        window.addEventListener('keydown', function(e) {
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+        if (!audio) return;
+        audio.play();
+        audio.currentTime = 0;
+        key.classList.add('playing');
+        setTimeout(() => {
+            key.classList.remove('playing');
+        }, 100);
+        
+        });
+    </script>
+</body>
+</html>
